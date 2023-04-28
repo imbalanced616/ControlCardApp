@@ -1,0 +1,43 @@
+﻿<Page x:Class="ControlCardApp.Pages.PageTemplates"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ControlCardApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="650" d:DesignWidth="1080"
+      Title="PageTemplates">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Шаблоны контрольных карт" Style="{StaticResource tblStyle}"/>
+        <DataGrid Name="dtgTemplates" MouseDoubleClick="DtgTemplates_MouseDoubleClick">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Добавить" Click="MenuAdd_Click"/>
+                    <MenuItem Header="Изменить" Click="MenuEdit_Click"/>
+                    <MenuItem Header="Обновить" Click="MenuUpdate_Click"/>
+                    <Separator Margin="0,3"/>
+                    <MenuItem Header="Сортировка по названию шаблона">
+                        <MenuItem Header="От А до Я" Click="MenuOrderBy_Click"/>
+                        <MenuItem Header="От Я до А" Click="MenuOrderByDescending_Click"/>
+                        <Separator Margin="0,3"/>
+                        <MenuItem Header="Cброс" Click="MenuUpdate_Click"/>
+                    </MenuItem>
+                    <Separator Margin="0,3"/>
+                    <MenuItem Header="Удалить" Click="MenuDelete_Click" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Width="40" Binding="{Binding idTemplate}"/>
+                <DataGridTextColumn Header="Название шаблона" Width="*" Binding="{Binding NameTemplate}"/>
+                <DataGridTextColumn Header="Деталь" Width="*" Binding="{Binding Details.NameDetail}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Назад" Grid.Row="3" Click="BtnBack_Click"/>
+    </Grid>
+</Page>

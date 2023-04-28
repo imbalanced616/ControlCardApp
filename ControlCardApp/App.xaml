@@ -1,0 +1,101 @@
+﻿<Application x:Class="ControlCardApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ControlCardApp"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="TextBlock" x:Key="tblStyle">
+            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#F0F4FC"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="tblStyle2">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Foreground" Value="#F0F4FC"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Foreground" Value="#32312D"/>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="500"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="275"/>
+            <Setter Property="Height" Value="55"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button" >
+                        <Border CornerRadius="15" BorderThickness="3" BorderBrush="Black" x:Name="Border">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0.0,0" EndPoint="0.0,1" >
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStopCollection >
+                                            <GradientStop Color="#9C9290" Offset="0"/>
+                                            <GradientStop Color="#7A8187" Offset="1"/>
+                                        </GradientStopCollection>
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="0:0:0.5"/>
+                                        <VisualTransition GeneratedDuration="0" To="Presed"/>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.Background).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="Border" >
+                                                <EasingColorKeyFrame KeyTime="0" Value="#32312D" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#32312D"/>
+            <Setter Property="Margin" Value="10,15"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#32312D"/>
+        </Style>
+        <Style TargetType="TreeView">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10,15"/>
+            <Setter Property="Grid.Row" Value="1"/>
+            <!--<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>-->
+        </Style>
+    </Application.Resources>
+</Application>
